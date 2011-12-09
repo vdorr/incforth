@@ -11,8 +11,12 @@ from vm6101def import *
 #-------------------------------------------------------------------------------------------------------------
 
 def dasm(code, lit_fmt = "H", show_adress = True, skip_prefix = True) :
-	ops = { opc : (name[3 if skip_prefix else 0:], arg) for name, (opc, arg) in asm.items() }
-	registers = { nr : name[2 if skip_prefix else 0:] for name, nr in regs.items() }
+	ops = { opc : (name[3 if skip_prefix else 0:], arg)
+			for name, (opc, arg) in asm.items()
+	}
+	registers = { nr : name[2 if skip_prefix else 0:]
+			for name, nr in regs.items()
+	}
         out = []
 	word_sz = len(struct.pack(lit_fmt, 0))
         adr_fmt = "0x%0" + ("%i" % (2 * word_sz)) + "x: "
