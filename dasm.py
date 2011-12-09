@@ -61,8 +61,8 @@ if __name__ == "__main__" :
         argp.add_argument("-o", "--out", dest="output",
                           default = None,
                           help = "output file name")
-        #endianness
-        #word size
+        #TODO endianness
+        #TODO word size
         args = argp.parse_args()
 
         try :
